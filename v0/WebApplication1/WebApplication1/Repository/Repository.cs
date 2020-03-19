@@ -1,14 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using Scholar.Models;
+using WebApplication1.Repository;
 
 namespace Scholar.Repository
 {
-    public class Repository
-    {
-        public class Repository<TEntity> : IRepository<TEntity> where TEntity : class
+      public class Repository<TEntity> : IRepository<TEntity> where TEntity : class
         {
             scholarDBContext context;
             public Repository()

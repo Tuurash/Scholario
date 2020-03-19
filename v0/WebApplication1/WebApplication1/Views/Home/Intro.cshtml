@@ -1,0 +1,84 @@
+﻿@model IEnumerable<Scholar.Models.courseTB>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Intro</title>
+</head>
+<body>
+    <p align="right">
+        @Html.ActionLink("Not Registered yet? join", "Registration")
+    </p>
+
+    <p>
+        @Html.ActionLink("Create New", "Create")
+
+    </p>
+
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.courseName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.courseDetails)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.courseImage)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.courseStatus)
+            </th>
+
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.courseID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.courseName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.courseDetails)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.userID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.instructorID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.courseImage)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.courseStatus)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.courseTopic)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.userStatus)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                    @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                    @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+
+                </td>
+            </tr>
+        }
+
+    </table>
+</body>
+</html>
