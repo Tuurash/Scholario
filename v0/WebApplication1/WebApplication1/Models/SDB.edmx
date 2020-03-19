@@ -1,0 +1,280 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="scholarModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'scholar.dbo.adminTB' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="adminTB">
+          <Key>
+            <PropertyRef Name="adminID" />
+            <PropertyRef Name="adminName" />
+            <PropertyRef Name="adminMail" />
+            <PropertyRef Name="adminPass" />
+          </Key>
+          <Property Name="adminID" Type="int" Nullable="false" />
+          <Property Name="adminName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="adminMail" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="adminPass" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="adminImage" Type="nvarchar" MaxLength="3000" />
+        </EntityType>
+        <EntityType Name="courseTB">
+          <Key>
+            <PropertyRef Name="courseID" />
+          </Key>
+          <Property Name="courseID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="courseName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="courseDetails" Type="nvarchar" MaxLength="1000" Nullable="false" />
+          <Property Name="userID" Type="int" />
+          <Property Name="instructorID" Type="int" Nullable="false" />
+          <Property Name="courseImage" Type="nvarchar" MaxLength="3000" />
+          <Property Name="courseStatus" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="courseTopic" Type="varchar" MaxLength="50" />
+          <Property Name="userStatus" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="instructorTB">
+          <Key>
+            <PropertyRef Name="instructorID" />
+          </Key>
+          <Property Name="instructorID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="instructorName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="instructorMail" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="password" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="instructorImage" Type="nvarchar" MaxLength="3000" />
+          <Property Name="instructorDocumet" Type="varchar" MaxLength="3000" />
+          <Property Name="instructorStatus" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="userTB">
+          <Key>
+            <PropertyRef Name="userID" />
+          </Key>
+          <Property Name="userID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="userName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="userMail" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Password" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="userImage" Type="nvarchar" MaxLength="3000" />
+        </EntityType>
+        <Association Name="FK_courseTB_instructorTB">
+          <End Role="instructorTB" Type="Self.instructorTB" Multiplicity="1" />
+          <End Role="courseTB" Type="Self.courseTB" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="instructorTB">
+              <PropertyRef Name="instructorID" />
+            </Principal>
+            <Dependent Role="courseTB">
+              <PropertyRef Name="instructorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_courseTB_userTB">
+          <End Role="userTB" Type="Self.userTB" Multiplicity="0..1" />
+          <End Role="courseTB" Type="Self.courseTB" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="userTB">
+              <PropertyRef Name="userID" />
+            </Principal>
+            <Dependent Role="courseTB">
+              <PropertyRef Name="userID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="scholarModelStoreContainer">
+          <EntitySet Name="courseTB" EntityType="Self.courseTB" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="instructorTB" EntityType="Self.instructorTB" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="userTB" EntityType="Self.userTB" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="adminTB" EntityType="Self.adminTB" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [adminTB].[adminID] AS [adminID], 
+    [adminTB].[adminName] AS [adminName], 
+    [adminTB].[adminMail] AS [adminMail], 
+    [adminTB].[adminPass] AS [adminPass], 
+    [adminTB].[adminImage] AS [adminImage]
+    FROM [dbo].[adminTB] AS [adminTB]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_courseTB_instructorTB" Association="Self.FK_courseTB_instructorTB">
+            <End Role="instructorTB" EntitySet="instructorTB" />
+            <End Role="courseTB" EntitySet="courseTB" />
+          </AssociationSet>
+          <AssociationSet Name="FK_courseTB_userTB" Association="Self.FK_courseTB_userTB">
+            <End Role="userTB" EntitySet="userTB" />
+            <End Role="courseTB" EntitySet="courseTB" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="scholarModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="courseTB">
+          <Key>
+            <PropertyRef Name="courseID" />
+          </Key>
+          <Property Name="courseID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="courseName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="courseDetails" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="userID" Type="Int32" />
+          <Property Name="instructorID" Type="Int32" Nullable="false" />
+          <Property Name="courseImage" Type="String" MaxLength="3000" FixedLength="false" Unicode="true" />
+          <Property Name="courseStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="courseTopic" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="userStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="instructorTB" Relationship="Self.FK_courseTB_instructorTB" FromRole="courseTB" ToRole="instructorTB" />
+          <NavigationProperty Name="userTB" Relationship="Self.FK_courseTB_userTB" FromRole="courseTB" ToRole="userTB" />
+        </EntityType>
+        <EntityType Name="instructorTB">
+          <Key>
+            <PropertyRef Name="instructorID" />
+          </Key>
+          <Property Name="instructorID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="instructorName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="instructorMail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="instructorImage" Type="String" MaxLength="3000" FixedLength="false" Unicode="true" />
+          <Property Name="instructorDocumet" Type="String" MaxLength="3000" FixedLength="false" Unicode="false" />
+          <Property Name="instructorStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="courseTBs" Relationship="Self.FK_courseTB_instructorTB" FromRole="instructorTB" ToRole="courseTB" />
+        </EntityType>
+        <EntityType Name="userTB">
+          <Key>
+            <PropertyRef Name="userID" />
+          </Key>
+          <Property Name="userID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="userName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="userMail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="userImage" Type="String" MaxLength="3000" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="courseTBs" Relationship="Self.FK_courseTB_userTB" FromRole="userTB" ToRole="courseTB" />
+        </EntityType>
+        <EntityType Name="adminTB">
+          <Key>
+            <PropertyRef Name="adminID" />
+            <PropertyRef Name="adminName" />
+            <PropertyRef Name="adminMail" />
+            <PropertyRef Name="adminPass" />
+          </Key>
+          <Property Name="adminID" Type="Int32" Nullable="false" />
+          <Property Name="adminName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="adminMail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="adminPass" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="adminImage" Type="String" MaxLength="3000" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <Association Name="FK_courseTB_instructorTB">
+          <End Role="instructorTB" Type="Self.instructorTB" Multiplicity="1" />
+          <End Role="courseTB" Type="Self.courseTB" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="instructorTB">
+              <PropertyRef Name="instructorID" />
+            </Principal>
+            <Dependent Role="courseTB">
+              <PropertyRef Name="instructorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_courseTB_userTB">
+          <End Role="userTB" Type="Self.userTB" Multiplicity="0..1" />
+          <End Role="courseTB" Type="Self.courseTB" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="userTB">
+              <PropertyRef Name="userID" />
+            </Principal>
+            <Dependent Role="courseTB">
+              <PropertyRef Name="userID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="scholarDBContext" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="courseTBs" EntityType="Self.courseTB" />
+          <EntitySet Name="instructorTBs" EntityType="Self.instructorTB" />
+          <EntitySet Name="userTBs" EntityType="Self.userTB" />
+          <EntitySet Name="adminTBs" EntityType="Self.adminTB" />
+          <AssociationSet Name="FK_courseTB_instructorTB" Association="Self.FK_courseTB_instructorTB">
+            <End Role="instructorTB" EntitySet="instructorTBs" />
+            <End Role="courseTB" EntitySet="courseTBs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_courseTB_userTB" Association="Self.FK_courseTB_userTB">
+            <End Role="userTB" EntitySet="userTBs" />
+            <End Role="courseTB" EntitySet="courseTBs" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="scholarModelStoreContainer" CdmEntityContainer="scholarDBContext">
+          <EntitySetMapping Name="courseTBs">
+            <EntityTypeMapping TypeName="scholarModel.courseTB">
+              <MappingFragment StoreEntitySet="courseTB">
+                <ScalarProperty Name="courseID" ColumnName="courseID" />
+                <ScalarProperty Name="courseName" ColumnName="courseName" />
+                <ScalarProperty Name="courseDetails" ColumnName="courseDetails" />
+                <ScalarProperty Name="userID" ColumnName="userID" />
+                <ScalarProperty Name="instructorID" ColumnName="instructorID" />
+                <ScalarProperty Name="courseImage" ColumnName="courseImage" />
+                <ScalarProperty Name="courseStatus" ColumnName="courseStatus" />
+                <ScalarProperty Name="courseTopic" ColumnName="courseTopic" />
+                <ScalarProperty Name="userStatus" ColumnName="userStatus" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="instructorTBs">
+            <EntityTypeMapping TypeName="scholarModel.instructorTB">
+              <MappingFragment StoreEntitySet="instructorTB">
+                <ScalarProperty Name="instructorID" ColumnName="instructorID" />
+                <ScalarProperty Name="instructorName" ColumnName="instructorName" />
+                <ScalarProperty Name="instructorMail" ColumnName="instructorMail" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="instructorImage" ColumnName="instructorImage" />
+                <ScalarProperty Name="instructorDocumet" ColumnName="instructorDocumet" />
+                <ScalarProperty Name="instructorStatus" ColumnName="instructorStatus" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="userTBs">
+            <EntityTypeMapping TypeName="scholarModel.userTB">
+              <MappingFragment StoreEntitySet="userTB">
+                <ScalarProperty Name="userID" ColumnName="userID" />
+                <ScalarProperty Name="userName" ColumnName="userName" />
+                <ScalarProperty Name="userMail" ColumnName="userMail" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="userImage" ColumnName="userImage" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="adminTBs">
+            <EntityTypeMapping TypeName="scholarModel.adminTB">
+              <MappingFragment StoreEntitySet="adminTB">
+                <ScalarProperty Name="adminID" ColumnName="adminID" />
+                <ScalarProperty Name="adminName" ColumnName="adminName" />
+                <ScalarProperty Name="adminMail" ColumnName="adminMail" />
+                <ScalarProperty Name="adminPass" ColumnName="adminPass" />
+                <ScalarProperty Name="adminImage" ColumnName="adminImage" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
