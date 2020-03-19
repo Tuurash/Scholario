@@ -59,7 +59,7 @@
                     @Html.DisplayFor(modelItem => item.instructorID)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.courseImage)
+                    <img src="@Url.Content(item.courseImage)" width="100" height="100" multiple />
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.courseStatus)

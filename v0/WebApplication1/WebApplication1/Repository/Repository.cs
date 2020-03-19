@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Web;
 using Scholar.Models;
@@ -27,6 +28,7 @@ namespace Scholar.Repository
 
             public void Insert(TEntity entity)
             {
+                
                 context.Set<TEntity>().Add(entity);
                 context.SaveChanges();
             }

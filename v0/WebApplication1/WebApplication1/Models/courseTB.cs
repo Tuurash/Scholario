@@ -11,7 +11,8 @@ namespace Scholar.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.Web;
+
     public partial class courseTB
     {
         public int courseID { get; set; }
@@ -23,7 +24,9 @@ namespace Scholar.Models
         public string courseStatus { get; set; }
         public string courseTopic { get; set; }
         public string userStatus { get; set; }
-    
+
+        public HttpPostedFileBase ImageFile { get; set; }
+
         public virtual instructorTB instructorTB { get; set; }
         public virtual userTB userTB { get; set; }
     }
