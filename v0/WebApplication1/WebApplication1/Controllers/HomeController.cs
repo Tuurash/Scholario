@@ -12,11 +12,6 @@ namespace Scholar.Controllers
     public class HomeController : Controller
     {
         IRepository<courseTB> courseRepo = new CourseRepository();
-        public ActionResult Index()
-        {
-            return View();
-        }
-
 
         public ActionResult Intro()
         {
@@ -25,12 +20,51 @@ namespace Scholar.Controllers
 
         public ActionResult Registration()
         {
-            return RedirectToAction("Register","User");
+            return RedirectToAction("Register", "User");
         }
         public ActionResult Create()
         {
             return View();
         }
+
+        public ActionResult Login()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Login(LoginViewmodel model)
+        {
+            scholarDBContext DB = new scholarDBContext();
+
+            var user = DB.userTBs.FirstOrDefault(x => x.userMail == model.userMail  && x.Password == model.Password);
+            if (user != null)
+            {
+                Session["userName"] = user.userName;
+                Session["userID"] = user.userID;
+                return RedirectToAction("UserProfile", "User", new { user.userID });
+            }
+            else
+            {
+                var instructor = DB.instructorTBs.FirstOrDefault(x => x.instructorMail == model.userMail && x.password == model.Password);
+                if (instructor != null)
+                {
+                    Session["instructorName"] = instructor.instructorName;
+                    Session["instructorID"] = instructor.instructorID;
+                    return RedirectToAction("InstructorProfile", "Instructor", new { instructor.instructorID });
+                }
+                else 
+                {
+                    return RedirectToAction("Login");
+                }
+            }
+        }
+
+
+
+
+
+
 
         [HttpPost]
         public ActionResult Create(courseTB crs)

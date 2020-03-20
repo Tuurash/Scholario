@@ -13,7 +13,8 @@
 </head>
 <body>
     <p align="right">
-        @Html.ActionLink("Not Registered yet? join", "Registration")
+        @Html.ActionLink("Not Registered yet? join", "Registration") <br />
+        @Html.ActionLink("Sign In", "Login")
     </p>
 
     <p>
@@ -43,37 +44,24 @@
         @foreach (var item in Model)
         {
             <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.courseID)
-                </td>
+              
                 <td>
                     @Html.DisplayFor(modelItem => item.courseName)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.courseDetails)
                 </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.userID)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.instructorID)
-                </td>
+               
+              
                 <td>
                     <img src="@Url.Content(item.courseImage)" width="100" height="100" multiple />
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.courseStatus)
                 </td>
+                
                 <td>
-                    @Html.DisplayFor(modelItem => item.courseTopic)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.userStatus)
-                </td>
-                <td>
-                    @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                    @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                    @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                    @Html.ActionLink("Details", "CourseDetails", new { BookId = item.courseID })
 
                 </td>
             </tr>

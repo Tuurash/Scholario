@@ -9,9 +9,18 @@ namespace WebApplication1.Controllers
     public class UserController : Controller
     {
         // GET: User
-        public ActionResult Register(int id=0)
+        public ActionResult Register()
         {
             return View();
+        }
+        public ActionResult UserProfile(int userID)
+        {
+            if (Session["UserID"] != null)
+            {
+
+                return View();
+            }
+            else { return RedirectToAction("Login","Home"); }
         }
     }
 }
