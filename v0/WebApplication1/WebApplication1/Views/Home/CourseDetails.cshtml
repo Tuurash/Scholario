@@ -1,0 +1,79 @@
+﻿@model Scholar.Models.courseTB
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>CourseDetails</title>
+</head>
+<body>
+    <div>
+        <h4>courseTB</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.courseName)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.courseName)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.courseDetails)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.courseDetails)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.courseStatus)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.courseStatus)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.courseTopic)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.courseTopic)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.userStatus)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.userStatus)
+            </dd>
+    
+        </dl>
+    </div>
+    <div align="right">
+        <dl>
+        <dt>
+            @Html.DisplayNameFor(model => model.courseImage)
+        </dt>
+
+        <dd>
+            <img src="@Url.Content(Model.courseImage)" width="200" height="200" multiple />
+        </dd>
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</body>
+</html>

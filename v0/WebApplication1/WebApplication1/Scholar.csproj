@@ -229,6 +229,7 @@
     <Content Include="Views\User\UserProfile.cshtml" />
     <Content Include="Views\Instructor\InstructorProfile.cshtml" />
     <Content Include="Views\Admin\AdminProfile.cshtml" />
+    <Content Include="Views\Home\CourseDetails.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

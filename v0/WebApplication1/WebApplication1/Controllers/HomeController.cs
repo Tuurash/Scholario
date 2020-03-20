@@ -68,6 +68,15 @@ namespace Scholar.Controllers
             }
         }
 
+        public ActionResult CourseDetails(int courseID)
+        {
+            if (Session["userName"] != null)
+            {
+                return View(courseRepo.Get(courseID));
+            }
+            else { return RedirectToAction("Login"); }
+        }
+
 
 
 
