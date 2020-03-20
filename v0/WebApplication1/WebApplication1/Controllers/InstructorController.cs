@@ -13,5 +13,15 @@ namespace WebApplication1.Controllers
         {
             return View();
         }
+
+        public ActionResult InstructorProfile()
+        {
+            if (Session["instructorID"] != null)
+            {
+
+                return View();
+            }
+            else { return RedirectToAction("Login", "Home"); }
+        }
     }
 }

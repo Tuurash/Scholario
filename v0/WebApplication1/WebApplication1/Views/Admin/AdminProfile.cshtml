@@ -1,0 +1,38 @@
+﻿@model Scholar.Models.scholarDBContext
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <div>
+        @{
+            ViewBag.Title = "InstructorDashBoard";
+        }
+
+        <fieldset>
+            <legend> User DashBoard </legend>
+
+            @if (Session["adminName"] != null)
+            {
+                <text>
+                    Welcome @Session["adminName"].ToString()
+                </text>
+
+                <br /><br />
+                <br /><br />
+                <br /><br />
+
+            }
+
+        </fieldset>
+    </div>
+    <div>@Html.ActionLink("LogOut", "Logout")</div>
+</body>
+</html>

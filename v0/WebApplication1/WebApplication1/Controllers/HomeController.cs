@@ -55,6 +55,14 @@ namespace Scholar.Controllers
                 }
                 else 
                 {
+                    var admin = DB.adminTBs.FirstOrDefault(x => x.adminMail == model.userMail && x.adminPass == model.Password);
+                    if (admin != null)
+                    {
+                        Session["adminName"] = admin.adminMail;
+                        Session["adminID"] = admin.adminID;
+                        return RedirectToAction("AdminProfile", "Admin", new { admin.adminID });
+                    }
+                    else
                     return RedirectToAction("Login");
                 }
             }

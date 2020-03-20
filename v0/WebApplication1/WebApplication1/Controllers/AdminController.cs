@@ -13,5 +13,14 @@ namespace WebApplication1.Controllers
         {
             return View();
         }
+        public ActionResult AdminProfile()
+        {
+            if (Session["adminID"] != null)
+            {
+
+                return View();
+            }
+            else { return RedirectToAction("Login", "Home"); }
+        }
     }
 }

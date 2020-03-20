@@ -227,13 +227,13 @@
     <Content Include="Views\Home\Create.cshtml" />
     <Content Include="Views\Home\Login.cshtml" />
     <Content Include="Views\User\UserProfile.cshtml" />
+    <Content Include="Views\Instructor\InstructorProfile.cshtml" />
+    <Content Include="Views\Admin\AdminProfile.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Image\" />
-    <Folder Include="Views\Admin\" />
     <Folder Include="Views\Course\" />
-    <Folder Include="Views\Instructor\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
