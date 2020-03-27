@@ -10,12 +10,35 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Intro</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+
 </head>
 <body>
     <p align="right">
         @Html.ActionLink("Not Registered yet? join", "Registration") <br />
         @Html.ActionLink("Sign In", "Login")
     </p>
+
+        <button type="button" class="btn-block" style="width:225px">Modal </button>
+        <div class="modal fade" id="myModal" role="dialog" data-url="@Url.Action("Login","Home")"></div>
+        <script type="text/javascript">
+
+
+            $(document).ready(function () {
+                $('.btn-block').click(function () {
+                    var url = $('#myModal').data('url');
+                    $.get(url, function (data) {
+                        $('#myModal').html(data);
+                        $("#myModal").modal('show');
+                    });
+                });
+            });
+        </script>
+
+    
 
     <p>
         @Html.ActionLink("Create New", "Create")

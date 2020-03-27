@@ -29,7 +29,7 @@ namespace Scholar.Controllers
 
         public ActionResult Login()
         {
-            return View();
+            return PartialView();
         }
 
         [HttpPost]
