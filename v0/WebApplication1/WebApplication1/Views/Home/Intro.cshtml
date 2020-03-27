@@ -11,18 +11,19 @@
     <meta name="viewport" content="width=device-width" />
     <title>Intro</title>
 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
 
 </head>
 <body>
-    <p align="right">
-        @Html.ActionLink("Not Registered yet? join", "Registration") <br />
-        @Html.ActionLink("Sign In", "Login")
+    <p align="left">
+        @Html.ActionLink("Not Registered yet? join", "Registration")
     </p>
+    <p align="right">
 
-        <button type="button" class="btn-block" style="width:225px">Modal </button>
+        <button type="button" class="btn-block" style="width:225px">Sign In </button>
         <div class="modal fade" id="myModal" role="dialog" data-url="@Url.Action("Login","Home")"></div>
         <script type="text/javascript">
 
@@ -37,8 +38,10 @@
                 });
             });
         </script>
+    </p>
 
-    
+
+
 
     <p>
         @Html.ActionLink("Create New", "Create")
@@ -67,22 +70,22 @@
         @foreach (var item in Model)
         {
             <tr>
-              
+
                 <td>
                     @Html.DisplayFor(modelItem => item.courseName)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.courseDetails)
                 </td>
-               
-              
+
+
                 <td>
                     <img src="@Url.Content(item.courseImage)" width="100" height="100" multiple />
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.courseStatus)
                 </td>
-                
+
                 <td>
                     @Html.ActionLink("Details", "CourseDetails", new { courseID = item.courseID })
 

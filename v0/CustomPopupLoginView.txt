@@ -1,16 +1,16 @@
-﻿@model Scholar.Models.LoginViewmodel
+@model Scholar.Models.LoginViewmodel
 
 
-<div class="container">
-    <div class="row">
-
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <h4 class="modal-title" id="myModal-label"> Login </h4>
-                </div>
-                <div class="modal-body">
+<div class="modal fade" id="MyModal">
+<div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+            <a href="#" class="close" data-dismiss="modal" &times;</a>
+            <h4 id="ModalTitle"></h4>
+        </div>
+        <div class="modal-body">
+            <form id="form">
+                <fieldset>
                     @using (Html.BeginForm(FormMethod.Post))
                     {
                         @Html.AntiForgeryToken()
@@ -45,15 +45,14 @@
                     <div>
                         @Html.ActionLink("Not a User? Register", "Registration")
                     </div>
-                </div>
-                <div class="modal-footer">
-                    <button class="btn btn-default" data-dismiss="modal" id="btnCancel">Cancel</button>
-                </div>
-            </div>
 
 
+                </fieldset>
+            </form>
         </div>
-
-
+        <div class="modal-footer">
+            <button class="btn btn-default" data-dismiss="modal" id="btnCancel">Cancel</button>
+        </div>
     </div>
+</div>
 </div>
