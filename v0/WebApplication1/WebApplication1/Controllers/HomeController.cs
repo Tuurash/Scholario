@@ -13,6 +13,11 @@ namespace Scholar.Controllers
     {
         IRepository<courseTB> courseRepo = new CourseRepository();
 
+        public ActionResult Index()
+        {
+            return View();
+        }
+
         public ActionResult Intro()
         {
             return View(courseRepo.GetAll());
