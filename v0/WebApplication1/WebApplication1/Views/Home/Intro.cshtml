@@ -14,7 +14,8 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-
+    <link href="~/Content/Site.css" rel="stylesheet"/>
+  
 
 </head>
 <body>
@@ -24,7 +25,7 @@
     <p align="right">
 
         <button type="button" class="btn-block" style="width:225px">Sign In </button>
-        <div class="modal fade" id="myModal" role="dialog" data-url="@Url.Action("Login","Home")"></div>
+        <div class="modal fade" id="myModal" role="dialog" data-url="@Url.Action("Login", "Home")"></div>
         <script type="text/javascript">
 
 
@@ -48,51 +49,27 @@
 
     </p>
 
-    <table class="table">
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.courseName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.courseDetails)
-            </th>
+    @{ 
+        foreach (var item in Model)
+    {
+        <div class="col-sm-4 col-lg-4 col-md-4">
+            <div class="thumbnail">
 
-            <th>
-                @Html.DisplayNameFor(model => model.courseImage)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.courseStatus)
-            </th>
+                <img src="@Url.Content(item.courseImage)" alt="" />
+                <div class="caption">
+                    <h3 class="pull-right">@Html.DisplayFor(modelItem => item.courseStatus)</h3>
+                    <h2>
+                        <a>@Html.DisplayFor(modelItem => item.courseName)</a>
+                    </h2>
+                    <p>@Html.DisplayFor(modelItem => item.courseDetails)</p>
+                    <p>@Html.ActionLink("Details", "CourseDetails", new { courseID = item.courseID })</p>
+                </div>
+            </div>
+           
 
-            <th></th>
-        </tr>
-
-        @foreach (var item in Model)
-        {
-            <tr>
-
-                <td>
-                    @Html.DisplayFor(modelItem => item.courseName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.courseDetails)
-                </td>
-
-
-                <td>
-                    <img src="@Url.Content(item.courseImage)" width="100" height="100" multiple />
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.courseStatus)
-                </td>
-
-                <td>
-                    @Html.ActionLink("Details", "CourseDetails", new { courseID = item.courseID })
-
-                </td>
-            </tr>
+        </div>
         }
+    }
 
-    </table>
 </body>
 </html>
