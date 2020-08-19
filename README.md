@@ -50,20 +50,20 @@ Can see friends profile and Score
 WIll see a Ranking list of student’s friends 
 WIll see  global Ranking list 
 
-3.Admin
-Viewer
-Modifier
-4.Course
-Open for all
-Person controlled
-5.Assessment
+3.Admin  
+Viewer  
+Modifier  
+4.Course  
+Open for all  
+Person controlled  
+5.Assessment  
 Different types of Assessment Depending on Checking type 
-Automated
-Checked by another student (Writings)
+Automated  
+Checked by another student (Writings)  
 Practice Assessment points will be sent automatically to its Instructor.
 Different types of Assessment depending on Instructor’s selected option
 Course-related assessment
-Assessments to provide the course free
+Assessments to provide the course free   
 
 
 6.Projects:
