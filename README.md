@@ -42,7 +42,7 @@ Virtual Screening for mental health:
 >Provide points value for each assessment on a particular course  
 >Provide required audio, video, text, code snippets or other files for the course  
 >Showcase Projects (opensource)  
->Will provide assessments (free or course-related)    
+>Will provide assessments (free or course-related)  
 2.Student-- 
 Can take course,  
 Can only take the assessment without taking the course  
@@ -50,20 +50,20 @@ Can see friends profile and Score
 WIll see a Ranking list of student’s friends   
 WIll see  global Ranking list   
 
-3.Admin  
-Viewer  
+3.Admin   
+Viewer   
 Modifier  
-4.Course  
-Open for all  
-Person controlled  
-5.Assessment  
+4.Course   
+Open for all   
+Person controlled   
+5.Assessment   
 Different types of Assessment Depending on Checking type 
-Automated  
+Automated    
 Checked by another student (Writings)  
-Practice Assessment points will be sent automatically to its Instructor.
+Practice Assessment points will be sent automatically to its Instructor.  
 Different types of Assessment depending on Instructor’s selected option
-Course-related assessment
-Assessments to provide the course free   
+Course-related assessment  
+Assessments to provide the course free     
 
 
 6.Projects:
