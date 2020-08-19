@@ -39,10 +39,10 @@ Virtual Screening for mental health:
 1.Instructor--  
 (Will design course keeping in mind the functionality(points, assessments, certifications) of the site)  
 
-Provide points value for each assessment on a particular course  
-Provide required audio, video, text, code snippets or other files for the course  
-Showcase Projects (opensource)  
-Will provide assessments (free or course-related)  
+>Provide points value for each assessment on a particular course  
+>Provide required audio, video, text, code snippets or other files for the course  
+>Showcase Projects (opensource)  
+>Will provide assessments (free or course-related)    
 2.Student-- 
 Can take course,  
 Can only take the assessment without taking the course  
