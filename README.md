@@ -9,31 +9,31 @@ An online platform where users can learn, earn, and exercise according to their 
 # two types of classrooms:  
 -free (Designed by the site’s fixed  instructors)  
 -Curriculum Controlled(Will be designed by the person who wants to provide the class/// Kind of like google classroom)  
-# Free:  
+**Free:  
 include branches or topic specialization  
 recognition/recommendation can be given as a badge with the percentage of achievements  
 
-# **Organisation Controlled:  
+**Organisation Controlled:  
 
 Fixed course  
 The curriculum is fixed for every course
  The teacher will design the course keeping in mind the functionality of our site  
 
 
-# *Completing free/curricular or any practices on the platform will increase the level  
+*Completing free/curricular or any practices on the platform will increase the level  
 
 [https://learn.datacamp.com/]
-[https://www.hackerrank.com/dashboard]
-Virtual Screening for mental health:
+[https://www.hackerrank.com/dashboard]  
+Virtual Screening for mental health:  
 
--Q&A 
+-Q&A  
 -the result will provide suggestions & medication & percentage if above 70%
 
 [https://www.helpyourselfhelpothers.org/]
 
 
 ----------------------------------------------------------------------------------------------------------------------------
-   Learning Web Feature list
+# Learning Web Feature list
 
 
 1.Instructor(Will design course keeping in mind the functionality(points, assessments, certifications) of the site)
