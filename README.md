@@ -3,24 +3,24 @@ An online platform where users can learn, earn, and exercise according to their 
 
 # Online Teacher:
 
--no certification instead points;
--ECA
+-no certification instead points;  
+-ECA  
 
-contains two types of classrooms:
--free (Designed by the site’s fixed  instructors)
--Curriculum Controlled(Will be designed by the person who wants to provide the class/// Kind of like google classroom)
-Free:
-include branches or topic specialization
-recognition/recommendation can be given as a badge with the percentage of achievements
+# two types of classrooms:  
+-free (Designed by the site’s fixed  instructors)  
+-Curriculum Controlled(Will be designed by the person who wants to provide the class/// Kind of like google classroom)  
+# Free:  
+include branches or topic specialization  
+recognition/recommendation can be given as a badge with the percentage of achievements  
 
-**Organisation Controlled:
+# **Organisation Controlled:  
 
-Fixed course 
+Fixed course  
 The curriculum is fixed for every course
- The teacher will design the course keeping in mind the functionality of our site
+ The teacher will design the course keeping in mind the functionality of our site  
 
 
-*Completing free/curricular or any practices on the platform will increase the level
+# *Completing free/curricular or any practices on the platform will increase the level  
 
 [https://learn.datacamp.com/]
 [https://www.hackerrank.com/dashboard]
